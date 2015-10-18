@@ -1,0 +1,25 @@
+#
+
+source [find interface/jlink.cfg]
+
+transport select swd
+#swd_mode 2
+#swd_delay 2
+
+# increase working area to 8KB
+# set WORKAREASIZE 0x2000
+
+# chip name
+set CHIPNAME MKLx
+
+reset_config srst_only
+
+source [find target/klx.cfg]
+
+$_TARGETNAME configure -event gdb-attach {
+   reset
+   init
+   halt
+   flash probe 0
+}
+

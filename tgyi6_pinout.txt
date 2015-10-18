@@ -1,0 +1,65 @@
+U4: MCU MKL16Z64VLH4 Cortex M0+ 64KByte Flash / 8 kByte SRAM
+Y1: 8.00MHz
+U3: EEPROM: FT24C128 16KByte
+ SDA: (21)
+ SCL: (20)
+
+LCD1: ?
+ D0: (7)
+ D1: (8)
+ D2: (9)
+ D3: (10)
+ D4: (53)
+ D5: (54)
+ D6: (55)
+ D7: (56)
+ CS: (26)
+ RW: (19)
+ RS: (29)
+ R0?: (18)
+ LED: (35) PB0 ALT1
+
+A7105: 2.4 GHz RF transceiver
+RF0:
+RF1:
+SCS:
+SCK:
+SDIO:
+GIO1: (60)
+RX-SW:
+TX-SW: (1)
+
+CONN8:
+ CH2-IN:
+ CH1-IN:
+ CH4-IN:
+ CH3-IN:
+
+J7: 
+ SWA:
+ SWB:
+
+J6:
+ CH5-IN
+
+J5:
+ SWC:
+ SWD:
+
+J8:
+ PPM-IN
+ PPM-OUT
+ TX
+ RX
+
+?: trim?
+ R1:
+ R2:
+ L1:
+ L2:
+ L3:
+ L4:
+
+J1:
+ BAT-
+ BAT+

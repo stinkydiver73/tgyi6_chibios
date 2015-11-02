@@ -1,64 +1,65 @@
 U4: MCU MKL16Z64VLH4 Cortex M0+ 64KByte Flash / 8 kByte SRAM
 Y1: 8.00MHz
 U3: EEPROM: FT24C128 16KByte
- SDA: (21)
- SCL: (20)
+ SDA: (21) I2C0_SDA ALT5 (2k2 pullup, pin5)
+ SCL: (20) I2C0_SCL ALT5 (2k2 pullup, pin6)
 
-LCD1: ?
- D0: (7)
- D1: (8)
- D2: (9)
- D3: (10)
- D4: (53)
- D5: (54)
- D6: (55)
- D7: (56)
- CS: (26)
- RW: (19)
- RS: (29)
- R0?: (18)
- LED: (35) PB0 ALT1
+LCD1: HSG12864-35 ST7565P 6800-mode
+ D0: (7)   PTE18 ALT1 
+ D1: (8)   PTE19 ALT1
+ D2: (9)   PTE20 ALT1
+ D3: (10)  PTE21 ALT1
+ D4: (53)  PTC8  ALT1
+ D5: (54)  PTC9  ALT1
+ D6: (55)  PTC10 ALT1
+ D7: (56)  PTC11 ALT1
+ CS: (26)  PTA4  ALT1 LCD_CS
+ RW: (19)  PTE31 ALT1 LCD_R#W
+ RS: (29)  PTA13 ALT1 LCD_A0
+ R0: (18)  PTE30 ALT1 LCD_E
+ RST: (64) PTD7  ALT1 LCD_RES
+ LED: (35) PTB0  ALT1
 
 A7105: 2.4 GHz RF transceiver
-RF0:
-RF1:
-SCS:
-SCK:
-SDIO:
+RF0: (52)
+RF1: (46)
+SCS: (49)
+SCK: (50)
+SDIO: (51)
 GIO1: (60)
-RX-SW:
+RX-SW: (2)
 TX-SW: (1)
 
 CONN8:
- CH2-IN:
- CH1-IN:
- CH4-IN:
- CH3-IN:
+ CH2-IN: (62)
+ CH1-IN: (63)
+ CH4-IN: (45)
+ CH3-IN: (58)
 
 J7: 
- SWA:
- SWB:
+ SWA: (57)
+ SWB: (44)
 
 J6:
- CH5-IN
+ CH5-IN: VRA (11)
+ CH6-IN: VRB (12)
 
 J5:
- SWC:
- SWD:
+ SWC: (43)
+ SWD: (61)
 
 J8:
- PPM-IN
- PPM-OUT
- TX
- RX
+ PPM-IN: (24)
+ PPM-OUT: (23)
+ TX: (5)
+ RX: (6)
 
-?: trim?
- R1:
- R2:
- L1:
- L2:
- L3:
- L4:
+?: trim
+ 		R1 (36):	R2 (37):	R3 (38)
+ L1 (39):	Roll R		Throttle U	Down
+ L2 (40):	Roll L		Throttle D	Up
+ L3 (41):	Pitch U		Yaw R		OK
+ L4 (42):	Pitch D		Yaw L		Cancel
 
 J1:
  BAT-

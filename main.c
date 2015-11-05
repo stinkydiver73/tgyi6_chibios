@@ -17,14 +17,15 @@
 #include "ch.h"
 #include "hal.h"
 //#include "test.h"
+#include "lcd.h"
 
 static THD_WORKING_AREA(waThread1, 64);
 static THD_FUNCTION(Thread1, arg) {
 
   (void)arg;
-  chRegSetThreadName("RedBlinker");
+  chRegSetThreadName("backlightBlinker");
   while (true) {
-    palTogglePad(IOPORT2, 0);
+    palTogglePad(GPIOB, 0);
     chThdSleepMilliseconds(500);
   }
 }
@@ -33,10 +34,13 @@ static THD_WORKING_AREA(waThread2, 64);
 static THD_FUNCTION(Thread2, arg) {
 
   (void)arg;
-  chRegSetThreadName("GreenBlinker");
+  chRegSetThreadName("lcdHello");
   while (true) {
-//    palTogglePad(IOPORT2, 19);
-    chThdSleepMilliseconds(600);
+    lcd_set_cursor(15, 30);
+    lcd_write_string("text 15,30", LCD_OP_SET, FLAGS_NONE);
+    lcd_update();
+
+    chThdSleepMilliseconds(10000);
   }
 }
 
@@ -44,7 +48,7 @@ static THD_WORKING_AREA(waThread3, 64);
 static THD_FUNCTION(Thread3, arg) {
 
   (void)arg;
-  chRegSetThreadName("BlueBlinker");
+  chRegSetThreadName("doesNothing");
   while (true) {
 //    palTogglePad(IOPORT4, 1);
     chThdSleepMilliseconds(900);
@@ -70,9 +74,19 @@ int main(void) {
    * Activates serial 1 (UART0) using the driver default configuration.
    */
  // sdStart(&SD1, NULL);
+
   palSetPadMode(GPIOB, 0, PAL_MODE_ALTERNATIVE_1);       /*  */
   palSetPadMode(GPIOB, 0, PAL_MODE_OUTPUT_PUSHPULL);       /*  */
  
+  chThdSleepMilliseconds(500);
+  lcd_init();
+
+  lcd_set_cursor(0,50);
+  lcd_write_string("Hello 0,50", LCD_OP_SET, FLAGS_NONE);
+  lcd_update();
+
+
+  chThdSleepMilliseconds(5000);
   /*
    * Creates the blinker threads.
    */
